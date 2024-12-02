@@ -1,0 +1,327 @@
+<html>
+<head>
+<meta charset="UTF-8">
+  	<style type="text/css" media="screen">
+        div {
+        padding:0px;
+        margin-top: 0px;
+        }
+        #hold {
+		background-color: rgba(255, 255, 255, 0.8);
+        z-index: 5;
+        width: min-content;
+        }
+        #trail {
+        background-color: #FFFFFF;
+        z-index: 1;
+        font-family: courier,serif;
+        font-size:11px;
+        color: #999999;
+   width: 100%; //fallback
+   width: 100vw;
+           height: 100%
+        }
+        .centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+
+.row {
+display: inline-block;
+white-space: nowrap;
+padding: 0px;
+margin: 13px;
+}
+
+        span {
+/*         background-color: #FFFFFF; */
+        padding-top:7px;
+        padding-bottom: 7px;
+        padding-left:1px;
+        padding-right:1px;
+        margin: 0px;
+        font-family: courier,serif;
+        font-size:14px;
+        color: #666666;
+        }
+    	.row:hover {
+    	cursor: pointer;
+        }
+        .playcon {
+                color: #cccccc;
+                }
+
+
+	</style>
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+
+<script>
+const alpha = '-zyxwvutsrqponmlkjihgfedcba';
+const lattices = `elegies.in.graphene/                 /                 /       .by.        /                 /                 /jonathan.thirkield/                 /                 /                 /  .z.y.x.w.v.u.t.s.r.q.p.o.n.  /  .m.l.k.j.i.h.g.f.e.d.c.b.a.  /                   
+zip.this.body.down.to/its.thinnest.carbon/lattice.fabric.soul/so.i.can.speak.the.way/a.ghost.should.speak/a.language.of.echoes/takes.hold.of.a.house/if.everybody.dreams/the.most.violet.time/to.depart.their.body/where.can.you.wake.up/the.language.dreams/itself.away.from.you
+you.happen.to.be.here/you.happen.to.appear/in.the.mirror.you.see/yourself.as.another/for.a.second.a.screen/is.like.a.lake.and.you/like.a.flower.over.it/it.is.all.cool.with.me/if.we.intersect.a.sec/i.am.just.my.language/and.you.are.your.mind/one.ripple.touching/the.edges.of.another
+xenon.arc.lamp.flash/blur.of.a.girl.on.a.box/a.spirit.in.motion.as/image.is.the.elision/from.within.a.series/of.light.of.a.refrain/carrying.an.image.of/an.imaginary.garden/to.an.invisible.room/there.are.lights.you/carry.inside.of.your/self.that.only.those/you.have.lost.can.see
+windup.godzilla.set/on.the.gray.windsill/eight.ounce.glass.of/water.eight.percent/full.a.sip.or.two.left/crimson.clock.radio/red.digital.numbers/as.erasures.of.eight/i.guess.time.weakens/in.low.pools.of.light/on.the.floor.flowers/papers.cut.to.appear/like.flowers.in.late
+versions.of.reality/vanish.down.shallow/wavelengths.a.world/i.lost.you.lost.we.see/topographic.cracks/open.into.us.so.close/i.cant.find.the.route/back.through.my.last/thought.everything/folds.inward.i.think/i.am.inside.a.circuit/did.i.drink.myself.to/death.one.cool.night
+understand.the.soul/is.transplanted.via/language.just.after/you.begin.to.breathe/our.sense.of.shaking/being.fluid.between/my.ears.ricocheting/over.here.i.overhear/flowers.drape.grass/brightness.degrade/the.trains.burn.away/a.feather.downriver/blue.as.pine.needles
+the.floor.of.the.city/slowly.falling.away/arrays.of.buildings/walls.of.black.glass/the.farther.i.ascend/the.quieter.the.wind/like.a.teardrop.like/an.air.cavity.inside/the.glassware.house/the.imperfection.at/the.edge.of.its.heart/his.name.was.removed/off.of.the.intercoms
+sub.rosa.water.chain/warm.room.of.rodents/resting.in.their.fat/hell.is.the.soft.sand/soot.in.the.basement/warming.away.my.feet/i.see.an.ace.of.spades/someone.had.crossed/out.the.a.and.written/q.on.it.a.replacement/for.the.lost.queen.or/a.replacing.answers/with.questions.what
+reappear.unchanged/like.a.house.in.a.mind/a.sea.in.the.head.seed/in.your.hand.shining/lacquer.candy.makes/ripple.over.ripples/rewriting.your.name/rewriting.your.time/zeroing.the.visible/away.almonds.buried/in.careful.disarray/the.house.falls.into/the.sea.over.and.over
+quilt.stitch.worlds/in.constant.erasure/the.nonworld.floats/characters.without/life.without.senses/electric.selves.run/in.constant.erasure/if.an.elegy.moves.you/backwards.in.time.in/time.collecting.the/decaying.particles/memory.cells.swells/of.waves.weave.texts
+paradise.a.parasite/a.parade.in.the.brain/legions.and.lesions/as.the.skys.thinning/the.mirage.of.myself/holograph.parasols/fill.the.rear.lounge/draping.the.corneal/shells.in.blue.halos/the.beautiful.child/under.anesthesia.is/a.lattice.with.vines/to.hold.him.together
+opaque.fog.along.the/roadside.ornaments/we.stop.and.walk.past/the.chainlink.fence/no.soul.left.in.sight/maybe.it.was.snowing/leaflets.by.the.door/churches.trickling/their.shadows.on.you/i.made.the.mistake.of/telling.some.of.this/to.a.real.person.real/folks.shouldnt.know
+noon.outlives.my.eye/in.gray.wet.unloving/pulmonary.function/a.brain.or.nothing.or/hoping.to.fill.space/the.universe.filled/with.that.hope.a.life/in.the.vacancy.signs/speaks.a.voice.box.is/like.a.roulette.ball/clicking.into.place/draw.the.spoon.to.his/mouth.and.make.a.wish
+mushroom.clouds.may/saccade.and.cascade/the.sky.is.gunpowder/charcoal.potassium/explosive.material/fragmentary.nature/like.a.song.airborne/like.viruses.shaped/into.sifted.letters/coordinated.strike/smoke.piercing.halo/a.lip.gloss.radiance/less.and.less.memory
+lithium.is.the.third/element.it.floats.on/water.it.treats.some/defects.in.the.brain/my.father.tried.it.in/nineteen.eighty.six/it.backfired.that.is/his.chemical.syntax/did.more.fragmented/things.following.it/this.is.not.about.you/he.says.over.and.over/what.is.it.about.then
+kerosene.drops.from/white.cherry.leaves/five.seven.five.snow/someone.never.shows/leafless.or.digital/thirteen.seventeen/petal.number.primes/the.midmonth.chimes/in.the.mouth.a.ripple/numeral.in.the.marsh/dips.its.metric.foot/in.the.rippling.pool/zero.on.zero.silence
+just.remove.your.ear/quell.all.the.shouts/yes.yes.you.sit.there/take.everything.off/your.shoes.your.skin/full.of.memory.banks/air.full.of.snowfall/in.the.dead.of.winter/nothing.is.timeless/everything.is.alive/all.human.bodies.can/reinvent.the.beauty/of.other.ones.around
+i.pulled.a.cockroach/from.my.liver.she.was/soft.and.glossy.with/a.liquid.pouch.round/her.head.she.shook.so/decently.as.english/boys.do.when.they.cry/let.her.rest.on.my.eye/drink.up.the.albumen/live.in.a.small.clear/shield.and.tickle.me/at.night.when.im.cold/when.she.needs.water
+hydrogen.engines.go/heavy.the.blue.stars/lighting.up.the.mind/become.the.elements/being.us.every.thing/carbon.dust.gathers/now.in.mass.clusters/o.to.begin.to.breathe/freely.light.up.like/neon.inside.the.tube/nascently.rise.from/mgangas.magic.words/all.because.you.will
+ghost.light.spilled/across.wordshadows/so.lettermarks.left/as.a.death.makes.real/the.space.in.the.body/you.inhabited.loved/knew.dwelled.inside/you.but.couldnt.feel/as.a.death.unmasks.us/for.what.being.human/depends.on.language/to.hold.in.past.tense/what.we.feel.present
+forty.days.fall.into/winter.as.the.leaves/let.windows.seeable/again.get.the.random/sunlight.ricochets/on.the.foot.of.the.bed/sublunary.mulberry/a.forking.in.the.mind/an.outline.of.itself/the.selfassembling/summer.crown.left.to/a.bare.eyes.revision/leaves.defacing.you
+eavesdropping.into/the.grape.skins.as.if/sunlight.filling.in/blue.christmas.tree/bulbs.strung.around/the.central.thought/what.we.have.lost.are/still.in.us.the.thing/is.not.where.the.dead/reside.but.where.you/ink.black.rain.cloud/letters.leaking.wet/on.the.rice.paper.sky
+digitalis.is.a.heart/stimulus.like.bells/numerously.chiming/down.the.finger.that/vague.atrial.rush.up/the.tympanic.sleeve/i.can.never.shed.this/though.i.know.it.like/music.in.the.shape.of/dashes.and.dots.of.on/switch.and.off.of.one/against.its.absence/figures.fat.and.thin
+change.rage.all.heat/and.towers.floating/cities.and.high.seas/so.sings.my.daughter/looking.out.upon.the/small.future.window/she.has.beauty.or.not/the.earths.less.than/a.troland.of.retinal/illuminance.so.much/for.coding.heaven.in/to.a.wafer.of.silicon/fly.in.trillion.suns
+body.blown.to.pollen/ash.beach.ash.speech/am.i.the.collections/of.figures.of.assets/of.type.on.whiteness/in.compounded.parts/if.all.of.us.are.music/though.dissonances/rule.over.order.body/of.flies.flickering/in.the.sand.dune.show/every.pigmentation/if.eyes.distinguish
+among.this.alphabet/i.know.i.should.never/say.ghost.when.i.feel/lonely.the.presence/of.the.word.pushes.up/against.my.shoulder/ghost.under.the.pool/of.light.beneath.the/stairs.ghost.in.mind/ghost.in.gray.chairs/id.be.a.blind.network/of.vulnerabilities/if.i.lost.the.word.you`
+
+const lattice = lattices.split('\n');
+let graphenes = [];
+let latticeChange = [0]
+
+let cP = 0;
+let transit = true;
+
+lattice.forEach(buildObject);
+
+function buildObject(poem,num) {
+	lines = poem.split('/')
+	for(let i=0; i < lines.length;i++) {
+		let words = lines[i].split('.');
+		let bounds = 0;
+		let wordends = [i * 51]
+		for(let j=0; j < words.length;j++) {
+			bounds+= words[j].length*3;
+			let eachbound = bounds + i * 51
+			wordends.push(eachbound)
+		oneworld = {}
+		oneworld.worldstart = eachbound-words[j].length*3;;
+		oneworld.worldend = eachbound;
+		oneworld.lattice = num;
+		oneworld.sound = words[j];
+		oneworld.breath = i;
+		oneworld.read = false;
+		graphenes.push(oneworld)
+
+		}
+	
+	
+	}
+	latticeChange.push(graphenes.length)
+}
+function bulidGrid(myData){ 
+      let rows = 13;
+      for(var i = 0; i < rows; i++){ 
+      	$("<div>").addClass("row").appendTo('#hold')
+      	
+      }
+      let cols = 17*3;
+      $('.row').each(function(i, obj) {
+        let textBlock = lattice[0].replaceAll('.','')
+        let textRow = textBlock.split('/')
+        
+		for(var j = 0; j < cols; j++){ 
+			let mytext = "<"
+			let dspeed = 5
+			if (j%3==2) {
+			mytext = ">"
+			} else if (j%3==1) {
+			
+			mytext = textRow[i][(j-1)/3]
+			dspeed = 1000 + (j + i * 17*3)*3
+			}
+			//console.log(j + i * 17*3)
+      		$("<span>")
+                        .attr('id', j + i * 17*3) 
+						.text(mytext).on({
+								  click: function() {
+									if(!transit) changeLattice(this.id)
+								  }, mouseenter: function() {
+									if(!transit) showWorld(this.id)
+								  }, mouseleave: function() {
+									if(!transit) leaveWorld(this.id)
+								  }
+								})
+      		      		.fadeTo(0,0).appendTo(this).delay(dspeed).fadeTo(0,1,function(){if (this.id == "661") transit=false})
+      		      		
+      	}
+		});
+
+  }
+
+//properties
+//beingRead: true
+//show
+function showWorld(iamhere) {
+
+	for (let i=latticeChange[cP]; i < latticeChange[cP+1];i++) {
+		if (graphenes[i].worldstart <= iamhere && graphenes[i].worldend > iamhere) {
+		if (graphenes[i].timeF) {clearTimeout(graphenes[i].timeF)}
+		$('span').each(function(){
+		  if (this.id >=graphenes[i].worldstart &&  this.id < graphenes[i].worldend ) {
+				if (this.id == graphenes[i].worldstart || this.id == graphenes[i].worldend-1) {
+					$(this).css('color', '#CCCCCC');
+				} else if (this.id%3!=1) {
+					$(this).css('opacity', '0');
+				}
+				}
+		});
+		break;
+		}
+	}
+}
+function leaveWorld(iamhere) {
+	for (let i=latticeChange[cP]; i < latticeChange[cP+1];i++) {
+		if (graphenes[i].worldstart <= iamhere && graphenes[i].worldend > iamhere) {
+			graphenes[i].timeF = setTimeout(() => closeWord(iamhere), 3000);
+			break;
+		}
+	}
+
+
+}
+function closeWord(iamhere) {
+	if (!transit) {
+	for (let i=latticeChange[cP]; i < latticeChange[cP+1];i++) {
+		if (graphenes[i].worldstart <= iamhere && graphenes[i].worldend > iamhere) {
+		console.log(graphenes[i].sound)
+		$('#trail').prepend(" " + graphenes[i].sound)
+		$('span').each(function(){
+		  if (this.id >=graphenes[i].worldstart &&  this.id < graphenes[i].worldend ) {
+				$(this).css('color', '#666666');
+				$(this).css('opacity', '1');
+
+				}
+		});
+		break;
+		}
+	}
+}
+
+}
+
+function changeLattice(iamhere) {
+	let myRow = Math.floor(iamhere/51);
+	let myLine = lattice[cP].split("/")[myRow]
+	console.log(myLine.replaceAll(".",""))
+	$('#trail').prepend(" " + myLine.replaceAll("."," "))
+
+	let myChar =	$('#' + iamhere).text();
+	let myVis =	$('#' + iamhere).css("opacity");
+	if (myVis == 1) {
+ 		if (myChar == lattice[cP][0] && cP > 0) {
+		 playLattice()
+		} else {
+		dissappear(iamhere,myChar)
+
+		}
+	}
+}
+
+function playLattice() {
+	transit = true;
+let dspeed = 400;
+	for (let i=latticeChange[cP]; i < latticeChange[cP+1];i++) {
+		if (graphenes[i].timeF) {clearTimeout(graphenes[i].timeF)}
+		
+		
+		$('span').each(function(){
+		if (this.id == graphenes[i].worldend + 1) {
+				dspeed += 700
+				}
+		  if (this.id >=graphenes[i].worldstart &&  this.id < graphenes[i].worldend ) {
+				
+				if (this.id == graphenes[i].worldstart || this.id == graphenes[i].worldend-1) {
+					$(this).delay(dspeed)
+				  .queue(function (next) { 
+					$(this).css('color', '#CCCCCC');
+					if (this.id%51==50) {
+					
+					let myRow = Math.floor(this.id/51);
+					let myLine = lattice[cP].split("/")[myRow]
+					$('#trail').prepend(" " + myLine.replaceAll("."," "))
+
+					console.log(myLine.replaceAll(".",""))}
+					if (this.id == 662) {transit=false} 
+					next(); 
+				  });
+				} else if (this.id%3!=1) {
+					$(this).delay(dspeed).fadeTo(0,0)
+				}
+				}
+		});
+	}
+}
+
+
+function dissappear(num,text) {
+transit = true;
+	let pNum = alpha.indexOf(text);
+	if (pNum == -1) {
+		pNum = (text == ">"||text == ' ') ? cP + 1 : cP - 1;
+	}
+	if (pNum < 1) {
+		pNum = lattice.length - 1;
+	}
+	if (pNum == lattice.length) {
+		pNum = 1;
+	}
+	cP = pNum;
+	if (cP < 1) {cP = 26}
+	if (num %3 != 1 ) {$('#' + num).css('font-weight', 'bold')}
+	$('span').each(function(){
+		  if (this.id !=num && this.id % 3== 1 ) {
+					$(this).fadeTo(1700,0)
+			} else {
+				$(this).fadeTo(2600,1)
+				$(this).css('color', '#666666');
+			}
+		}).promise().done( function(){ 
+		let mytext = lattice[cP].replaceAll(/[^a-z]/g,'');
+		if (num % 3==1) {$('#' + num).css('opacity', '0');
+		} else {$('#' + num).css('font-weight', 'normal');;
+		}
+		
+ 		console.log(mytext)
+ 		let dspeed = 2000;
+		$('span').each(function(){
+			dspeed += 5;
+		  if (this.id % 3== 1 ) {
+					$(this).text(mytext[(this.id-1)/3])
+					if (this.id==1) { $(this).fadeTo(0,1)
+					} else {$(this).delay(dspeed).fadeTo(0,1,function(){if (this.id == "661") transit=false})} 
+					
+			} 
+		})
+		 } );	
+	
+}
+</script>
+</head>
+<body onload="bulidGrid(2)">
+<div id="trail">
+
+</div>
+<div id="hold" class="centered">
+
+</div>
+
+</body>
+</html>
